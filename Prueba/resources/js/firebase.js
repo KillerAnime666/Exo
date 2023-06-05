@@ -75,19 +75,21 @@ document.getElementById("login").addEventListener("click", function() {
 
   signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
-    // Signed in 
+    // Autenticación exitosa
     const user = userCredential.user;
     console.log(user);
-    alert(user.email+" Login successfully!!!");
+    alert(user.email + " Login successfully!!!");
     document.getElementById('logout').style.display = 'block';
-    // ...
+    
+    // Redireccionar al usuario a inventory.html
+    window.location.href = "inventario.html";
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
     console.log(errorMessage);
     alert(errorMessage);
-  });		  		  
+  });
 });
 //----- End
 
